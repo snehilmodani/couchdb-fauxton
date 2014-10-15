@@ -74,8 +74,6 @@ function(app, FauxtonAPI, Documents, Changes, Index, DocEditor, Databases, Resou
         route: "designDocMetadata",
         roles: ['_admin']
       },
-      "database/:database/new_view": "newViewEditor",
-      "database/:database/new_view/:designDoc": "newViewEditor",
       "database/:database/_changes(:params)": "changes"
     },
 
