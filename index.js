@@ -44,7 +44,7 @@ module.exports = function (options) {
   var proxy = httpProxy.createServer({
     target: proxyUrl
   });
-
+try{
   http.createServer(function (req, res) {
     var isDocLink = /_utils\/docs/.test(req.url) ? true : false;
     var url = req.url.split(/\?v=|\?noCache/)[0].replace('_utils', '');
@@ -72,6 +72,10 @@ module.exports = function (options) {
 
     proxy.web(req, res);
   }).listen(port);
+} catch(err) {
+  console.log(err);
+}
+  
 
   proxy.on('error', function (e) {
     // don't explode on cancelled requests
